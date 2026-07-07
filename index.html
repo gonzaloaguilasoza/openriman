@@ -674,10 +674,9 @@ function fieldsHTML(){
   `;
 }
 
-async function openModal(dateId){
-  // Refresca cupos reales justo antes de mostrar el formulario
-  await fetchSlots();
-  renderDates();
+function openModal(dateId){
+  // Refresca cupos en segundo plano, sin bloquear la apertura del modal
+  fetchSlots().then(renderDates);
 
   const openId = dateId || getOpenDateId();
   const overlay = document.getElementById('modalOverlay');
