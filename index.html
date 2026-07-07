@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#EAF1E7">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<title>OPEN BUSINESS · Inducción Riman</title>
+<meta name="description" content="Inducción presencial OPEN BUSINESS — aprende a construir tu franquicia Riman, generar ingresos extra y levantar un activo a largo plazo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#171A17;
+    --navy-soft:#2A2E2A;
+    --green:#2B3A30;
+    --green-soft:#EAF1E7;
+    --stone:#B9BAB0;
+    --white:#FFFFFF;
+    --grey-bg:#F6F7F9;
+    --grey-line:#E4E7EB;
+    --text:#1B2126;
+    --text-mute:#5B6570;
+    --radius:14px;
+    --shadow:0 8px 24px rgba(19,42,70,0.08);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    overscroll-behavior-y:none;
+  }
+  button{touch-action:manipulation;}
+  h1,h2,.display{
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    color:#111;
+    margin:0;
+  }
+  h3{
+    font-family:'Manrope',sans-serif;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV / WORDMARK ---------- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px max(20px, env(safe-area-inset-right)) 18px max(20px, env(safe-area-inset-left));
+    padding-top:calc(18px + env(safe-area-inset-top));
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--grey-line);
+  }
+  .wordmark{
+    display:flex;flex-direction:column;line-height:1;
+  }
+  .wordmark .brand{
+    font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:21px;
+    letter-spacing:0.1em;color:var(--green);
+  }
+  .wordmark .sub{
+    font-size:10px;letter-spacing:0.18em;color:var(--green);
+    text-transform:uppercase;margin-top:3px;font-weight:600;
+    opacity:0.75;
+  }
+  .topbar .cta-mini{
+    display:none;
+  }
+  @media(min-width:720px){
+    .topbar .cta-mini{
+      display:inline-flex;
+      background:var(--green);color:#fff;border:none;
+      padding:10px 20px;border-radius:4px;font-weight:600;font-size:14px;
+      cursor:pointer;
+    }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:0 20px 40px;
+    position:relative;
+  }
+  .hero-panel{
+    position:relative;
+    background:var(--green-soft);
+    border-radius:16px;
+    overflow:hidden;
+    margin-top:20px;
+    padding:44px 24px;
+    text-align:left;
+  }
+  .hero-panel svg{position:absolute;top:0;left:0;width:100%;height:100%;}
+  .hero-panel-inner{position:relative;max-width:78%;}
+  @media(min-width:640px){.hero-panel-inner{max-width:56%;}}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--green);font-weight:700;
+    background:#fff;
+    padding:6px 13px;border-radius:999px;
+    margin-bottom:18px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+  .hero h1{
+    font-size:36px;font-weight:800;color:#111;
+    line-height:0.98;
+    margin-bottom:16px;
+    text-transform:uppercase;
+  }
+  .hero p.lead{
+    margin:0 0 22px;
+    color:var(--text-mute);font-size:15px;line-height:1.5;
+    max-width:320px;
+  }
+  .hero-cta{
+    background:var(--green);
+    color:#fff;border:none;
+    padding:15px 26px;border-radius:4px;
+    font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;
+    letter-spacing:0.02em;
+    cursor:pointer;
+    display:inline-flex;align-items:center;gap:10px;
+    transition:transform .15s ease;
+  }
+  .hero-cta:active{transform:scale(0.97);}
+  .hero-note{
+    display:block;margin-top:14px;font-size:12.5px;color:var(--text-mute);
+  }
+  .hero-note strong{color:#111;font-weight:800;}
+
+  .hero-strip{
+    display:flex;justify-content:center;gap:28px;flex-wrap:wrap;
+    margin-top:30px;padding-top:24px;border-top:1px solid var(--grey-line);
+  }
+  .hero-strip div{text-align:center;}
+  .hero-strip .num{font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;color:#111;}
+  .hero-strip .lab{font-size:11.5px;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.08em;}
+
+  /* ---------- HOOKS / VALUE ---------- */
+  section{padding:52px 20px;max-width:1000px;margin:0 auto;}
+  .section-head{text-align:center;margin-bottom:34px;}
+  .section-head .tag{
+    font-size:12px;color:var(--green);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  }
+  .section-head h2{font-size:27px;color:#111;margin-top:8px;font-weight:800;line-height:1.15;}
+
+  .hooks-grid{
+    display:grid;grid-template-columns:1fr;gap:16px;
+  }
+  @media(min-width:680px){.hooks-grid{grid-template-columns:1fr 1fr;}}
+  .hook-card{
+    background:var(--grey-bg);
+    border:1px solid var(--grey-line);
+    border-radius:var(--radius);
+    padding:22px;
+    display:flex;gap:14px;align-items:flex-start;
+  }
+  .hook-icon{
+    flex:none;width:42px;height:42px;border-radius:11px;
+    background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:19px;
+  }
+  .hook-card h3{font-size:16px;color:var(--navy);margin-bottom:6px;font-weight:700;}
+  .hook-card p{font-size:14px;color:var(--text-mute);line-height:1.5;margin:0;}
+
+  /* ---------- FECHAS / CUPOS ---------- */
+  .dates-wrap{display:flex;flex-direction:column;gap:16px;}
+  .date-card{
+    border-radius:var(--radius);
+    border:1.5px solid var(--grey-line);
+    padding:22px;
+    position:relative;
+    transition:border-color .2s ease;
+  }
+  .date-card.open{
+    border-color:var(--green);
+    background:linear-gradient(180deg,#fff 0%, var(--green-soft) 140%);
+    box-shadow:var(--shadow);
+  }
+  .date-card.locked{opacity:0.6;}
+  .date-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;}
+  .date-title{font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;color:var(--navy);}
+  .date-sub{font-size:12.5px;color:var(--text-mute);margin-top:2px;}
+  .badge{
+    font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;
+  }
+  .badge.disp{background:var(--green-soft);color:var(--green);}
+  .badge.lock{background:#EFEFF1;color:#8A8F98;}
+  .badge.full{background:#FBE9E9;color:#B23A3A;}
+
+  .progress-outer{
+    margin-top:14px;height:9px;border-radius:999px;background:#E9ECEF;overflow:hidden;
+  }
+  .progress-inner{
+    height:100%;border-radius:999px;
+    background:linear-gradient(90deg,var(--green),#2f8a61);
+    transition:width .4s ease;
+  }
+  .progress-label{
+    display:flex;justify-content:space-between;margin-top:8px;
+    font-size:12.5px;color:var(--text-mute);
+  }
+  .progress-label strong{color:var(--navy);}
+
+  .date-cta{
+    margin-top:16px;width:100%;
+    background:var(--green);color:#fff;border:none;
+    padding:14px;border-radius:4px;font-weight:700;font-size:15px;
+    font-family:'Manrope',sans-serif;
+    cursor:pointer;
+  }
+  .date-cta[disabled]{
+    background:#D9DBDE;color:#8A8F98;cursor:not-allowed;
+  }
+
+  /* ---------- METODOLOGIA ---------- */
+  .steps{display:flex;flex-direction:column;gap:0;}
+  .step{
+    display:flex;gap:16px;padding:18px 0;
+    border-bottom:1px solid var(--grey-line);
+  }
+  .step:last-child{border-bottom:none;}
+  .step-mark{
+    flex:none;width:34px;height:34px;border-radius:50%;
+    background:var(--navy);color:#fff;font-weight:800;font-size:13px;
+    display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;
+  }
+  .step h3{font-size:15.5px;color:var(--navy);margin-bottom:4px;font-weight:700;}
+  .step p{font-size:13.5px;color:var(--text-mute);margin:0;line-height:1.5;}
+
+  /* ---------- CTA FINAL ---------- */
+  .final-cta{
+    text-align:center;background:var(--navy);
+    border-radius:20px;padding:44px 24px;color:#fff;
+    margin:0 20px 52px;
+  }
+  .final-cta h2{font-size:27px;font-weight:800;margin-bottom:10px;color:#fff;}
+  .final-cta p{color:#C7D2DE;font-size:14.5px;margin-bottom:26px;max-width:420px;margin-left:auto;margin-right:auto;}
+  .final-cta .hero-cta{background:#fff;color:var(--green);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--grey-bg);border-top:1px solid var(--grey-line);
+    padding:40px 20px 28px;
+  }
+  .footer-grid{
+    max-width:1000px;margin:0 auto;
+    display:grid;grid-template-columns:1fr;gap:28px;
+  }
+  @media(min-width:680px){.footer-grid{grid-template-columns:1.1fr 1fr;}}
+  .footer-brand .brand{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:19px;letter-spacing:0.08em;color:var(--green);}
+  .footer-brand .sub{font-size:11px;letter-spacing:0.14em;color:var(--green);text-transform:uppercase;margin-top:4px;font-weight:700;}
+  .footer-brand p{font-size:13px;color:var(--text-mute);margin-top:12px;line-height:1.6;max-width:340px;}
+
+  .addr-block{display:flex;flex-direction:column;gap:16px;}
+  .addr-item{
+    display:flex;gap:12px;background:#fff;border:1px solid var(--grey-line);
+    border-radius:12px;padding:14px 16px;
+  }
+  .addr-icon{
+    flex:none;width:34px;height:34px;border-radius:9px;background:var(--green-soft);
+    display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--green);
+  }
+  .addr-item .t{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.05em;}
+  .addr-item .a{font-size:13.5px;color:var(--text-mute);margin-top:2px;}
+  .addr-item-body{flex:1;min-width:0;}
+  .map-links{display:flex;gap:8px;margin-top:10px;}
+  .map-link{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:11.5px;font-weight:600;color:var(--green);
+    border:1px solid var(--grey-line);border-radius:999px;
+    padding:5px 11px;text-decoration:none;
+    background:#fff;
+  }
+  .map-link svg{width:12px;height:12px;flex:none;}
+
+  .footer-bottom{
+    max-width:1000px;margin:28px auto 0;padding-top:18px;
+    border-top:1px solid var(--grey-line);
+    font-size:12px;color:var(--text-mute);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+
+  /* ---------- STICKY MOBILE CTA ---------- */
+  .sticky-cta{
+    position:fixed;bottom:0;left:0;right:0;z-index:60;
+    background:#fff;border-top:1px solid var(--grey-line);
+    padding:12px max(16px, env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    display:flex;
+  }
+  .sticky-cta button{
+    width:100%;background:var(--green);color:#fff;border:none;
+    padding:15px;border-radius:4px;font-weight:700;font-size:15px;
+    font-family:'Manrope',sans-serif;
+  }
+  @media(min-width:720px){.sticky-cta{display:none;}}
+  body{padding-bottom:78px;}
+  @media(min-width:720px){body{padding-bottom:0;}}
+
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(19,42,70,0.55);
+    display:none;align-items:flex-end;justify-content:center;z-index:100;
+    backdrop-filter:blur(2px);
+  }
+  .modal-overlay.show{display:flex;}
+  @media(min-width:640px){.modal-overlay{align-items:center;}}
+  .modal{
+    background:#fff;width:100%;max-width:460px;
+    border-radius:20px 20px 0 0;
+    padding:26px 22px calc(26px + env(safe-area-inset-bottom));
+    max-height:92vh;overflow-y:auto;
+    animation:slideUp .25s ease;
+  }
+  @media(min-width:640px){.modal{border-radius:20px;}}
+  @keyframes slideUp{from{transform:translateY(30px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+  .modal-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
+  .modal-head h3{font-size:19px;color:var(--navy);font-weight:800;}
+  .modal-close{
+    background:var(--grey-bg);border:none;width:36px;height:36px;border-radius:50%;
+    font-size:16px;color:var(--text-mute);cursor:pointer;flex:none;
+  }
+  .modal-date{
+    font-size:13px;color:var(--green);font-weight:700;margin-bottom:18px;
+  }
+  .field{margin-bottom:14px;}
+  .field label{
+    display:block;font-size:12.5px;font-weight:600;color:var(--navy);margin-bottom:6px;
+  }
+  .field input{
+    width:100%;padding:13px 14px;border-radius:10px;border:1.5px solid var(--grey-line);
+    font-size:16px;font-family:'Inter',sans-serif;background:#fbfbfc;
+  }
+  .field input:focus{outline:none;border-color:var(--green);background:#fff;}
+  .submit-btn{
+    width:100%;background:var(--green);color:#fff;border:none;
+    padding:15px;border-radius:4px;font-weight:700;font-size:15.5px;
+    font-family:'Manrope',sans-serif;cursor:pointer;margin-top:6px;
+  }
+  .submit-btn:disabled{background:#c9cdd2;cursor:not-allowed;}
+  .form-note{font-size:11.5px;color:var(--text-mute);text-align:center;margin-top:12px;line-height:1.5;}
+
+  .success-box{text-align:center;padding:10px 4px 4px;}
+  .success-icon{
+    width:60px;height:60px;border-radius:50%;background:var(--green-soft);
+    color:var(--green);display:flex;align-items:center;justify-content:center;
+    font-size:28px;margin:0 auto 16px;
+  }
+  .success-box h3{font-size:19px;color:var(--navy);margin-bottom:8px;}
+  .success-box p{font-size:14px;color:var(--text-mute);line-height:1.6;margin-bottom:20px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wordmark">
+    <span class="brand">RIMAN</span>
+    <span class="sub">Mastermind Team</span>
+  </div>
+  <button class="cta-mini" onclick="openModal()">Reservar cupo</button>
+</div>
+
+<section class="hero">
+  <div class="hero-panel">
+    <svg viewBox="0 0 700 420" preserveAspectRatio="xMaxYMax slice">
+      <circle cx="610" cy="330" r="105" fill="#c9c9bf" opacity="0.55"/>
+      <circle cx="610" cy="330" r="105" fill="none" stroke="#8f8f85" stroke-width="1" opacity="0.4"/>
+      <path d="M420 420 C 440 340 500 320 530 260 C 550 220 530 180 560 130" fill="none" stroke="#2B3A30" stroke-width="2" opacity="0.4"/>
+      <path d="M530 260 C 500 250 480 268 470 296" fill="none" stroke="#2B3A30" stroke-width="1.4" opacity="0.35"/>
+      <path d="M558 138 C 534 124 512 132 500 158" fill="none" stroke="#2B3A30" stroke-width="1.4" opacity="0.35"/>
+    </svg>
+    <div class="hero-panel-inner">
+      <span class="eyebrow"><span class="dot"></span> Cupos limitados a 30 personas</span>
+      <h1>Open<br>Business</h1>
+      <p class="lead">Aprende, conecta y construye tu franquicia Riman.</p>
+      <button class="hero-cta" onclick="openModal()">
+        Reservar cupo →
+      </button>
+      <span class="hero-note" id="heroNextDate">Cargando próxima fecha disponible…</span>
+    </div>
+  </div>
+
+  <div class="hero-strip">
+    <div><div class="num">100%</div><div class="lab">Presencial</div></div>
+    <div><div class="num">Cupos</div><div class="lab">Limitados</div></div>
+    <div><div class="num">Mentoría</div><div class="lab">En vivo</div></div>
+  </div>
+</section>
+
+<section id="hooks">
+  <div class="section-head">
+    <span class="tag">Por qué ir</span>
+    <h2>Un taller pensado para tomar acción, no solo para escuchar</h2>
+  </div>
+  <div class="hooks-grid">
+    <div class="hook-card">
+      <div class="hook-icon">🚀</div>
+      <div>
+        <h3>Cómo iniciar tu franquicia Riman</h3>
+        <p>El paso a paso para partir con el pie derecho, sin dar palos de ciego los primeros meses.</p>
+      </div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-icon">💰</div>
+      <div>
+        <h3>Ingresos extra reales</h3>
+        <p>Cómo generar un segundo ingreso consistente sin renunciar a lo que ya haces hoy.</p>
+      </div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-icon">🏛️</div>
+      <div>
+        <h3>Un activo a largo plazo</h3>
+        <p>La diferencia entre trabajar por un sueldo y construir algo que sigue generando aunque tú no estés.</p>
+      </div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-icon">📈</div>
+      <div>
+        <h3>Potenciar tu negocio actual</h3>
+        <p>Si ya estás en network marketing, vas a salir con estrategias concretas para escalar tu equipo.</p>
+      </div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-icon">🧭</div>
+      <div>
+        <h3>Mentoría directa</h3>
+        <p>Acompañamiento de líderes que ya recorrieron el camino — no teoría, experiencia real.</p>
+      </div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-icon">🗓️</div>
+      <div>
+        <h3>Tu plan de trabajo</h3>
+        <p>Sales del taller con un plan semanal claro, no con una lista de buenas intenciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="temario">
+  <div class="section-head">
+    <span class="tag">Temario</span>
+    <h2>Lo que vas a aprender en Open Business</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-mark">1</div>
+      <div><h3>Mentalidad empresarial</h3><p>El cambio de chip para dejar de pensar como empleado y empezar a pensar como dueño de tu negocio.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-mark">2</div>
+      <div><h3>Reprogramación al éxito</h3><p>Cómo identificar y romper las creencias que te han mantenido estancado hasta hoy.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-mark">3</div>
+      <div><h3>Habilidades millonarias para el network marketing</h3><p>Las competencias que todo líder de esta industria necesita dominar para crecer con consistencia.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-mark">4</div>
+      <div><h3>El poder del sistema y la duplicación</h3><p>Por qué duplicar un sistema simple vale más que depender de tu propio esfuerzo individual.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-mark">5</div>
+      <div><h3>El factor emocional del éxito</h3><p>Cómo tus emociones sostienen — o sabotean — cada decisión importante en tu negocio.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-mark">6</div>
+      <div><h3>Metas y plan de trabajo</h3><p>Cómo transformar una meta grande en un plan semanal que realmente puedas ejecutar.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-mark">7</div>
+      <div><h3>El secreto del éxito</h3><p>La pieza final que conecta todo lo anterior — y que la mayoría nunca llega a descubrir.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="fechas">
+  <div class="section-head">
+    <span class="tag">Fechas · Julio 2026</span>
+    <h2>Elige tu miércoles</h2>
+  </div>
+  <div class="dates-wrap" id="datesWrap"></div>
+</section>
+
+<div class="final-cta">
+  <h2>No dejes que otro tome tu lugar</h2>
+  <p>Solo 30 cupos por miércoles para que la mentoría sea real y personalizada. Si esperas, corres el riesgo de quedarte para el siguiente mes.</p>
+  <button class="hero-cta" onclick="openModal()">Quiero mi cupo ahora →</button>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand">RIMAN</span>
+      <div class="sub">Mastermind Team · Open Business</div>
+      <p>Inducción presencial para nuevos socios y distribuidores del equipo Riman Mastermind. Un espacio para aprender, conectar y salir con un plan de acción concreto.</p>
+    </div>
+    <div class="addr-block">
+      <div class="addr-item">
+        <div class="addr-icon">🚶</div>
+        <div class="addr-item-body">
+          <div class="t">Acceso peatonal</div>
+          <div class="a">Pedro de Valdivia 2219, Providencia</div>
+          <div class="map-links">
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Pedro+de+Valdivia+2219,+Providencia,+Santiago" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              Maps
+            </a>
+            <a class="map-link" href="https://waze.com/ul?q=Pedro%20de%20Valdivia%202219%20Providencia%20Santiago&navigate=yes" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L20 20 L12 16 L4 20 Z"/></svg>
+              Waze
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="addr-item">
+        <div class="addr-icon">🚗</div>
+        <div class="addr-item-body">
+          <div class="t">Acceso con vehículo</div>
+          <div class="a">Normandía 1941, Providencia</div>
+          <div class="map-links">
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Normand%C3%ADa+1941,+Providencia,+Santiago" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              Maps
+            </a>
+            <a class="map-link" href="https://waze.com/ul?q=Normand%C3%ADa%201941%20Providencia%20Santiago&navigate=yes" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L20 20 L12 16 L4 20 Z"/></svg>
+              Waze
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Riman Mastermind Team — Open Business</span>
+    <span>Todos los miércoles · 18:30 a 21:00 hrs</span>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <button onclick="openModal()">Reservar mi cupo</button>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN DE FECHAS Y CUPOS
+   -> Conectado a Google Sheets vía Google Apps Script.
+   -> GET  = trae el conteo de inscritos por fecha
+   -> POST = agrega una fila nueva (una inscripción)
+   ============================================================ */
+const DATES = [
+  { id:'2026-07-15', label:'Miércoles 15 de julio', max:30 },
+  { id:'2026-07-22', label:'Miércoles 22 de julio', max:30 },
+  { id:'2026-07-29', label:'Miércoles 29 de julio', max:30 },
+];
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxLhsbRfez4ZCqGsW8tB6ijj7kp36ND6VSk_QcTzQSskRM3ofNAWjvlw56o7_uGSOkz7A/exec';
+
+let slots = {}; // se llena con fetchSlots()
+DATES.forEach(d => slots[d.id] = 0);
+
+async function fetchSlots(){
+  try{
+    const res = await fetch(SCRIPT_URL, { method:'GET' });
+    const counts = await res.json();
+    DATES.forEach(d => slots[d.id] = counts[d.id] || 0);
+  }catch(e){
+    console.error('No se pudo leer la planilla de inscritos:', e);
+  }
+}
+
+function getOpenDateId(){
+  for(const d of DATES){
+    if((slots[d.id]||0) < d.max) return d.id;
+  }
+  return null; // todo lleno
+}
+
+function renderDates(){
+  const wrap = document.getElementById('datesWrap');
+  const openId = getOpenDateId();
+  wrap.innerHTML = '';
+
+  DATES.forEach(d => {
+    const used = slots[d.id] || 0;
+    const remaining = Math.max(d.max - used, 0);
+    const pct = Math.min((used / d.max) * 100, 100);
+    const isFull = remaining <= 0;
+    const isOpenDay = d.id === openId;
+
+    let badge = '';
+    if(isOpenDay) badge = '<span class="badge disp">Disponible</span>';
+    else if(isFull) badge = '<span class="badge full">Cupos agotados</span>';
+    else badge = '<span class="badge lock">Se libera después</span>';
+
+    const card = document.createElement('div');
+    card.className = 'date-card ' + (isOpenDay ? 'open' : 'locked');
+    card.innerHTML = `
+      <div class="date-top">
+        <div>
+          <div class="date-title">${d.label}</div>
+          <div class="date-sub">18:30 a 21:00 hrs · Presencial</div>
+        </div>
+        ${badge}
+      </div>
+      <div class="progress-outer"><div class="progress-inner" style="width:${pct}%"></div></div>
+      <div class="progress-label">
+        <span>${used} / ${d.max} inscritos</span>
+        <strong>${isFull ? 'Sin cupos' : remaining + ' cupos disponibles'}</strong>
+      </div>
+      <button class="date-cta" ${isOpenDay ? '' : 'disabled'} onclick="${isOpenDay ? `openModal('${d.id}')` : ''}">
+        ${isOpenDay ? 'Reservar cupo' : (isFull ? 'Cupos agotados' : 'Se libera al llenarse el anterior')}
+      </button>
+    `;
+    wrap.appendChild(card);
+  });
+
+  const heroNote = document.getElementById('heroNextDate');
+  if(openId){
+    const d = DATES.find(x=>x.id===openId);
+    const remaining = d.max - (slots[d.id]||0);
+    heroNote.innerHTML = `Cupos limitados a 30 personas · quedan <strong>${remaining}</strong> para el ${d.label}`;
+  } else {
+    heroNote.textContent = 'Los 3 miércoles de julio están completos por ahora.';
+  }
+}
+
+/* ============================================================
+   MODAL / FORMULARIO
+   ============================================================ */
+function fieldsHTML(){
+  return `
+    <div class="field">
+      <label for="fNombre">Nombre</label>
+      <input id="fNombre" type="text" placeholder="Tu nombre" required>
+    </div>
+    <div class="field">
+      <label for="fApellido">Apellido</label>
+      <input id="fApellido" type="text" placeholder="Tu apellido" required>
+    </div>
+    <div class="field">
+      <label for="fId">ID de Riman</label>
+      <input id="fId" type="text" placeholder="Tu ID de socio Riman" required>
+    </div>
+    <div class="field">
+      <label for="fTel">Teléfono celular</label>
+      <input id="fTel" type="tel" placeholder="+56 9 xxxx xxxx" required>
+    </div>
+  `;
+}
+
+async function openModal(dateId){
+  // Refresca cupos reales justo antes de mostrar el formulario
+  await fetchSlots();
+  renderDates();
+
+  const openId = dateId || getOpenDateId();
+  const overlay = document.getElementById('modalOverlay');
+  const content = document.getElementById('modalContent');
+
+  if(!openId){
+    content.innerHTML = `
+      <div class="modal-head"><h3>Cupos completos</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
+      <div class="success-box">
+        <div class="success-icon">📅</div>
+        <p>Los 3 miércoles de julio están llenos por ahora. Escríbenos para avisarte apenas se abra una nueva fecha.</p>
+      </div>
+    `;
+    overlay.classList.add('show');
+    return;
+  }
+
+  const d = DATES.find(x=>x.id===openId);
+  content.innerHTML = `
+    <div class="modal-head">
+      <h3>Reservar mi cupo</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-date">📍 ${d.label} · 18:30 a 21:00 hrs</div>
+    <form id="slotForm">
+      ${fieldsHTML()}
+      <button type="submit" class="submit-btn" id="submitBtn">Confirmar mi cupo</button>
+      <p class="form-note">Al reservar, tu cupo queda pre-asignado para ${d.label}. Cupos sujetos a disponibilidad al momento de confirmar.</p>
+    </form>
+  `;
+  overlay.classList.add('show');
+
+  document.getElementById('slotForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    submitSlot(openId);
+  });
+}
+
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('show');
+}
+
+async function submitSlot(dateId){
+  const nombre = document.getElementById('fNombre').value.trim();
+  const apellido = document.getElementById('fApellido').value.trim();
+  const idRiman = document.getElementById('fId').value.trim();
+  const tel = document.getElementById('fTel').value.trim();
+
+  if(!nombre || !apellido || !idRiman || !tel){ return; }
+
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Confirmando…';
+
+  const d = DATES.find(x=>x.id===dateId);
+
+  try{
+    const res = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // evita preflight CORS con Apps Script
+      body: JSON.stringify({ fecha: dateId, nombre, apellido, idRiman, telefono: tel })
+    });
+    const result = await res.json();
+
+    if(!result.ok){
+      // Se llenó justo antes de confirmar: refresca y muestra el siguiente día disponible
+      await fetchSlots();
+      renderDates();
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Confirmar mi cupo';
+      openModal();
+      return;
+    }
+  }catch(e){
+    console.error('Error al guardar la inscripción:', e);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Confirmar mi cupo';
+    alert('Hubo un problema al guardar tu inscripción. Por favor intenta de nuevo.');
+    return;
+  }
+
+  await fetchSlots();
+  renderDates();
+
+  const content = document.getElementById('modalContent');
+  content.innerHTML = `
+    <div class="modal-head"><span></span><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="success-box">
+      <div class="success-icon">✓</div>
+      <h3>¡Cupo reservado!</h3>
+      <p>${nombre}, tu lugar para <strong>${d.label}</strong> quedó pre-asignado. Te contactaremos al ${tel} para confirmar los detalles.</p>
+      <div class="addr-item" style="text-align:left;">
+        <div class="addr-icon">🚶</div>
+        <div class="addr-item-body">
+          <div class="t">Acceso peatonal</div>
+          <div class="a">Pedro de Valdivia 2219</div>
+          <div class="map-links">
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Pedro+de+Valdivia+2219,+Providencia,+Santiago" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              Maps
+            </a>
+            <a class="map-link" href="https://waze.com/ul?q=Pedro%20de%20Valdivia%202219%20Providencia%20Santiago&navigate=yes" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L20 20 L12 16 L4 20 Z"/></svg>
+              Waze
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="addr-item" style="text-align:left;margin-top:10px;">
+        <div class="addr-icon">🚗</div>
+        <div class="addr-item-body">
+          <div class="t">Acceso con vehículo</div>
+          <div class="a">Normandía 1941</div>
+          <div class="map-links">
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Normand%C3%ADa+1941,+Providencia,+Santiago" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              Maps
+            </a>
+            <a class="map-link" href="https://waze.com/ul?q=Normand%C3%ADa%201941%20Providencia%20Santiago&navigate=yes" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L20 20 L12 16 L4 20 Z"/></svg>
+              Waze
+            </a>
+          </div>
+        </div>
+      </div>
+      <button class="submit-btn" style="margin-top:18px;" onclick="closeModal()">Listo</button>
+    </div>
+  `;
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e){
+  if(e.target === this) closeModal();
+});
+
+(async function init(){
+  await fetchSlots();
+  renderDates();
+})();
+</script>
+
+</body>
+</html>
