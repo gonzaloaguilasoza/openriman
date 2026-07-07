@@ -586,7 +586,7 @@ DATES.forEach(d => slots[d.id] = 0);
 
 async function fetchSlots(){
   try{
-    const res = await fetch(SCRIPT_URL, { method:'GET' });
+    const res = await fetch(SCRIPT_URL + '?t=' + Date.now(), { method:'GET', cache:'no-store' });
     const counts = await res.json();
     DATES.forEach(d => slots[d.id] = counts[d.id] || 0);
   }catch(e){
