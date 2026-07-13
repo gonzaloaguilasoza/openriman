@@ -496,15 +496,15 @@
 
 <section id="fechas">
   <div class="section-head">
-    <span class="tag">Fechas · Julio 2026</span>
-    <h2>Elige tu miércoles</h2>
+    <span class="tag">Fecha confirmada</span>
+    <h2>Sábado 18 de julio</h2>
   </div>
   <div class="dates-wrap" id="datesWrap"></div>
 </section>
 
 <div class="final-cta">
   <h2>No dejes que otro tome tu lugar</h2>
-  <p>Solo 30 cupos por miércoles para que la mentoría sea real y personalizada. Si esperas, corres el riesgo de quedarte para el siguiente mes.</p>
+  <p>Solo 30 cupos para que la mentoría sea real y personalizada. Este sábado 18 de julio, 12:00 a 14:00 hrs.</p>
   <button class="hero-cta" onclick="openModal()">Quiero mi cupo ahora →</button>
 </div>
 
@@ -555,7 +555,7 @@
   </div>
   <div class="footer-bottom">
     <span>© 2026 Riman Mastermind Team — Open Business</span>
-    <span>Todos los miércoles · 18:30 a 21:00 hrs</span>
+    <span>Sábado 18 de julio · 12:00 a 14:00 hrs</span>
   </div>
 </footer>
 
@@ -575,9 +575,7 @@
    -> POST = agrega una fila nueva (una inscripción)
    ============================================================ */
 const DATES = [
-  { id:'2026-07-15', label:'Miércoles 15 de julio', max:30 },
-  { id:'2026-07-22', label:'Miércoles 22 de julio', max:30 },
-  { id:'2026-07-29', label:'Miércoles 29 de julio', max:30 },
+  { id:'2026-07-18', label:'Sábado 18 de julio', max:30 },
 ];
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxLhsbRfez4ZCqGsW8tB6ijj7kp36ND6VSk_QcTzQSskRM3ofNAWjvlw56o7_uGSOkz7A/exec';
 
@@ -624,7 +622,7 @@ function renderDates(){
       <div class="date-top">
         <div>
           <div class="date-title">${d.label}</div>
-          <div class="date-sub">18:30 a 21:00 hrs · Presencial</div>
+          <div class="date-sub">12:00 a 14:00 hrs · Presencial</div>
         </div>
         ${badge}
       </div>
@@ -646,7 +644,7 @@ function renderDates(){
     const remaining = d.max - (slots[d.id]||0);
     heroNote.innerHTML = `Cupos limitados a 30 personas · quedan <strong>${remaining}</strong> para el ${d.label}`;
   } else {
-    heroNote.textContent = 'Los 3 miércoles de julio están completos por ahora.';
+    heroNote.textContent = 'Los cupos del sábado 18 de julio están completos por ahora.';
   }
 }
 
@@ -687,7 +685,7 @@ function openModal(dateId){
       <div class="modal-head"><h3>Cupos completos</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
       <div class="success-box">
         <div class="success-icon">📅</div>
-        <p>Los 3 miércoles de julio están llenos por ahora. Escríbenos para avisarte apenas se abra una nueva fecha.</p>
+        <p>Los cupos del sábado 18 de julio están llenos por ahora. Escríbenos para avisarte apenas se abra una nueva fecha.</p>
       </div>
     `;
     overlay.classList.add('show');
@@ -700,7 +698,7 @@ function openModal(dateId){
       <h3>Reservar mi cupo</h3>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
-    <div class="modal-date">📍 ${d.label} · 18:30 a 21:00 hrs</div>
+    <div class="modal-date">📍 ${d.label} · 12:00 a 14:00 hrs</div>
     <form id="slotForm">
       ${fieldsHTML()}
       <button type="submit" class="submit-btn" id="submitBtn">Confirmar mi cupo</button>
